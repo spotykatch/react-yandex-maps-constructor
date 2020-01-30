@@ -11,16 +11,17 @@ npm install --save react-yandex-maps-constructor
 ```
 
 ## Usage
+Copy full script code of your Yandex Map Constructor and paste it to script attribute.
 
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-yandex-maps-constructor'
+import YandexMapConstructor from 'react-yandex-maps-constructor'
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <YandexMapConstructor script='<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A82bea7622863f2ed81e94d89127e73a7821886976f226e3e00b727819a2835ea&amp;width=500&amp;height=300&amp;lang=ru_RU&amp;scroll=true"></script>' />
     )
   }
 }
