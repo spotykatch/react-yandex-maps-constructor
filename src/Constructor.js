@@ -17,7 +17,11 @@ export default class Constructor extends Component {
 				script.async = true;
 
 				this.yandexMap.current.appendChild(script);
+			} else {
+				console.error('React-Yandex-Maps-Constructor: Bad script format. Put full script string to the script tag from <script ... to </script>.');
 			}
+		} else {
+			console.error('React-Yandex-Maps-Constructor: script tag not found.');
 		}
 	}
 
