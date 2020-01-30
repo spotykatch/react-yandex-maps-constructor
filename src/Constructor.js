@@ -10,11 +10,14 @@ export default class Constructor extends Component {
 	componentDidMount() {
 		if(this.props.script) {
 			const script = document.createElement("script");
+			const src = this.deconstruct(this.props.script);
 
-			script.src = this.deconstruct(this.props.script);
-			script.async = true;
+			if(src) {
+				script.src = src;
+				script.async = true;
 
-			this.yandexMap.current.appendChild(script);
+				this.yandexMap.current.appendChild(script);
+			}
 		}
 	}
 
@@ -27,12 +30,7 @@ export default class Constructor extends Component {
 	deconstruct(script) {
 		if(typeof script !== 'string') return false;
 
-		const strArray = script.split(' ');
-
-		for(let i = 0; i < strArray.length; i++)
-			if(strArray[i].indexOf('src') === 0) return strArray[i].slice(5);
-
-		return false;
+		return script.match(/(?<=\bsrc=")[^"]*/);
 	}
 
 	render() {
