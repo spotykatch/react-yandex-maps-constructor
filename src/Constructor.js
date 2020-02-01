@@ -13,6 +13,8 @@ export default class Constructor extends Component {
 			const src = this.deconstruct(this.props.script);
 
 			if(src) {
+				script.type = 'text/javascript';
+				script.charset = "utf-8";
 				script.src = src;
 				script.async = true;
 
