@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class Constructor extends Component {
+class Constructor extends Component {
 	constructor(props) {
 		super(props);
 
@@ -49,3 +50,9 @@ export default class Constructor extends Component {
 		return <div ref={this.yandexMap} />;
 	}
 };
+
+Constructor.propTypes = {
+	script: PropTypes.string
+};
+
+export default Constructor;
