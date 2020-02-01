@@ -36,7 +36,11 @@ export default class Constructor extends Component {
 	deconstruct(script) {
 		if(typeof script !== 'string') return false;
 
-		return script.match(/(?<=\bsrc=")[^"]*/);
+		const result = script.match(/(?<=\bsrc=")[^"]*/);
+
+		if(result[0].search(/^(http|https):\/\/api-maps.yandex.ru\/services\/constructor\//) === 0)
+			return result;
+		else return false; 
 	}
 
 	render() {
